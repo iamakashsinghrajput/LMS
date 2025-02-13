@@ -20,7 +20,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "semantic-ui-react": "^2.0.3",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "yarn": "^1.22.22"
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",

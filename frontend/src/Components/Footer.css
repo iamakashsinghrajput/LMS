@@ -3,6 +3,7 @@
   flex-direction: column;
   background-color: black;
   color: wheat;
+  scroll-behavior: smooth;
 }
 
 .footer-data {

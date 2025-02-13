@@ -23,7 +23,7 @@ router.post("/register", async (req, res) => {
       address: req.body.address,
       mobileNumber: req.body.mobileNumber,
       email: req.body.email,
-      password: hashedPass,
+      password: hashedPass, // Updated to use the hashed password
       isAdmin: req.body.isAdmin,
     });
 

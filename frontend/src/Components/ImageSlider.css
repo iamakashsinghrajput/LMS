@@ -5,10 +5,9 @@
 
 img{
     width: auto;
-    height: 500px;
+    height: 800px;
 }
 
-/* Mobile View */
 @media screen and (max-width:768px){
     img{
         height: 250px;

@@ -3,8 +3,6 @@ import React from 'react'
 import About from '../Components/About'
 import Footer from '../Components/Footer'
 import ImageSlider from '../Components/ImageSlider'
-import News from '../Components/News'
-import PhotoGallery from '../Components/PhotoGallery'
 import PopularBooks from '../Components/PopularBooks'
 import RecentAddedBooks from '../Components/RecentAddedBooks'
 import ReservedBooks from '../Components/ReservedBooks'
@@ -21,8 +19,6 @@ function Home() {
             <RecentAddedBooks/>
             <PopularBooks/>
             <ReservedBooks/>
-            <News/>
-            <PhotoGallery/>
             <Footer/>
         </div>
     )
