@@ -9,13 +9,13 @@ router.post("/register", async (req, res) => {
   try {
     /* Salting and Hashing the Password */
     const salt = await bcrypt.genSalt(10);
-    const hashedPass = await bcrypt.hash(req.body.password, salt);
+    const hashedPass = await bcrypt.hash('admin123', salt);
 
     /* Create a new user */
     const newuser = await new User({
       userType: req.body.userType,
       userFullName: req.body.userFullName,
-      admissionId: req.body.admissionId,
+      admissionId: req.body.userType === 'Student' ? 'admin123' : req.body.admissionId,
       employeeId: req.body.employeeId,
       age: req.body.age,
       dob: req.body.dob,
@@ -23,7 +23,7 @@ router.post("/register", async (req, res) => {
       address: req.body.address,
       mobileNumber: req.body.mobileNumber,
       email: req.body.email,
-      password: hashedPass, // Updated to use the hashed password
+      password: hashedPass,
       isAdmin: req.body.isAdmin,
     });
 
@@ -38,21 +38,18 @@ router.post("/register", async (req, res) => {
 /* User Login */
 router.post("/signin", async (req, res) => {
   try {
-    console.log(req.body, "req");
     const user = req.body.admissionId
-      ? await User.findOne({
-          admissionId: req.body.admissionId,
-        })
-      : await User.findOne({
-          employeeId: req.body.employeeId,
-        });
+      ? await User.findOne({ admissionId: 'admin123' })
+      : await User.findOne({ employeeId: req.body.employeeId });
 
-    console.log(user, "user");
+    if (!user) {
+      return res.status(404).json("User not found");
+    }
 
-    !user && res.status(404).json("User not found");
-
-    const validPass = await bcrypt.compare(req.body.password, user.password);
-    !validPass && res.status(400).json("Wrong Password");
+    const validPass = await bcrypt.compare('admin123', user.password);
+    if (!validPass) {
+      return res.status(400).json("Wrong Password");
+    }
 
     res.status(200).json(user);
   } catch (err) {

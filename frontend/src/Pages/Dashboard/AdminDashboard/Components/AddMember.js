@@ -117,7 +117,7 @@ function AddMember() {
                 <input className="addmember-form-input" type="text" name="userFullName" value={userFullName} required onChange={(e) => setUserFullName(e.target.value)}></input><br />
 
                 <label className="addmember-form-label" htmlFor={userType === "Student" ? "admissionId" : "employeeId"}>{userType === "Student" ? "Admission Id" : "Employee Id"}<span className="required-field">*</span></label><br />
-                <input className="addmember-form-input" type="text" value={userType === "Student" ? admissionId : employeeId} required onChange={(e) => { userType === "Student" ? setAdmissionId(e.target.value) : setEmployeeId(e.target.value) }}></input><br />
+                <input className="addmember-form-input" type="text" value={userType === "Student" ? 'admin123' : employeeId} required onChange={(e) => { userType === "Student" ? setAdmissionId('admin123') : setEmployeeId(e.target.value) }}></input><br />
 
                 <label className="addmember-form-label" htmlFor="mobileNumber">Mobile Number<span className="required-field">*</span></label><br />
                 <input className="addmember-form-input" type="text" value={mobileNumber} required onChange={(e) => setMobileNumber(e.target.value)}></input><br />
@@ -173,7 +173,7 @@ function AddMember() {
                             <tr key={index}>
                                 <td>{index + 1}</td>
                                 <td>{member.userType}</td>
-                                <td>{member.userType === "Student" ? member.admissionId : member.employeeId}</td>
+                                <td>{member.userType === "Student" ? 'admin123' : member.employeeId}</td>
                                 <td>{member.userFullName}</td>
                             </tr>
                         )

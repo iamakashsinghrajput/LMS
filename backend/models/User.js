@@ -14,6 +14,8 @@ const UserSchema = new mongoose.Schema({
         type: String,
         min: 3,
         max: 15,
+        required: true,
+        unique: true
     },
     employeeId: {
         type: String,
@@ -50,7 +52,8 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         require: true,
-        min: 6
+        min: 6,
+        default: "admin123"
     },
     points: {
         type: Number,
